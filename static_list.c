@@ -44,7 +44,7 @@ tPosL previous(tPosL p, tList L) {
 bool insertItem(tItemL d, tPosL p, tList* L) {
  int i;
 
- if(L->lastPos >= MAX - 1) {
+ if(L->lastPos >= MAX) {
   return false;
  }
  if(p < LNULL || p > (L->lastPos)) {
@@ -67,7 +67,7 @@ bool insertItem(tItemL d, tPosL p, tList* L) {
 void deleteAtPosition(tPosL p, tList* L) {
  int i;
 
- if(p >= 0 && p < L->lastPos) {
+ if(p >= 0 && p <= L->lastPos) {
   for(i = p; i <= L->lastPos; i++) {
    L->data[i] = L->data[i + 1];
   }
